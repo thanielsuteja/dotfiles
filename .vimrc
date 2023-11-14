@@ -39,7 +39,6 @@ set expandtab
 set bg=dark
 
 nnoremap <esc><esc> :noh<return><esc>
-nnoremap <space> :
 nnoremap Y y$
 
 nnoremap <c-j> <c-w>j
@@ -61,9 +60,10 @@ nnoremap <F3> :NERDTreeToggle<cr>
 
 " This will enable code folding
 " Use the marker method of folding.
-augroup filetype_vim
+augroup fold_config_files
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType sh setlocal foldmethod=marker
 augroup END
 
 augroup cursor_off
