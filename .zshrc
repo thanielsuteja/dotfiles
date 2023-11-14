@@ -2,7 +2,7 @@ PS1='%F{yellow}%D{%L:%M:%S}%f %1~ %# '
 
 # Java
 JAVA_HOME=$(/usr/libexec/java_home -v 11)
-PATH=$JAVA_HOME:$PATH
+PATH="$JAVA_HOME/bin:$PATH"
 
 # Maven
 MVN_HOME='/Users/thaniel/prog/maven/bin'
@@ -39,6 +39,14 @@ alias t10="~/prog/10/bin/catalina.sh"
 alias mvni="mvn clean install"
 alias mvnis="mvni -DskipTests"
 
+# GIT ALIASES
+alias gst="git status"
+alias gss="git status --short"
+alias gco="git checkout"
+alias gc-="git checkout -"
+alias gcb="git checkout -b"
+alias gcam="git commit --all --message"
+
 alias letsgo=$HOME/myspace/shell-scripting/letsgo.sh
 
 alias edirc='vim ~/.zshrc'
@@ -48,7 +56,10 @@ alias otg=$HOME/myspace/shell-scripting/ofg/otg.sh
 
 alias unsafechr='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security --no-default-browser-check'
 
-alias ll='ls -la'
+alias ls='eza'
+alias ll='eza -la'
+alias la='eza -a'
+alias lt='eza -T'
 
 # alias myip="ifconfig en0 | awk '/inet / {print $2}'"
 # set IP=ifconfig en0 | awk '/inet / {print $2}'
@@ -60,3 +71,8 @@ if [ -z "$INTELLIJ_ENVIRONMENT_READER" ]; then
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
+
+### Shell configuration
+
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
