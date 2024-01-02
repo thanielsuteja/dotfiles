@@ -11,8 +11,12 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'morhetz/gruvbox'
+Plug 'vim-scripts/argtextobj.vim'
+Plug 'tommcdo/vim-exchange'
 
 call plug#end()
+
+packadd! matchit
 
 " }}}
 
@@ -46,12 +50,15 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-noremap <c-up> <c-w>+
-noremap <c-down> <c-w>-
-noremap <c-left> <c-w>>
-noremap <c-right> <c-w><
+nnoremap <c-up> <c-w>+
+nnoremap <c-down> <c-w>-
+nnoremap <c-left> <c-w>>
+nnoremap <c-right> <c-w><
 
 nnoremap <F3> :NERDTreeToggle<cr>
+
+nnoremap <space> "+
+vnoremap <space> "+
 
 " }}}
 
@@ -65,6 +72,9 @@ augroup fold_config_files
     autocmd FileType vim setlocal foldmethod=marker
     autocmd FileType sh setlocal foldmethod=marker
 augroup END
+
+autocmd FileType java nnoremap <buffer> ]] ]m
+autocmd FileType java nnoremap <buffer> [[ [m
 
 augroup cursor_off
     autocmd!
