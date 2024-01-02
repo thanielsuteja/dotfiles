@@ -3,13 +3,13 @@ alias j11="export JAVA_HOME=$(/usr/libexec/java_home -v 11); java -version"
 alias j17="export JAVA_HOME=$(/usr/libexec/java_home -v 17); java -version"
 
 alias mvi="mvn clean install"
-alias mvis="mvni -DskipTests"
+alias mvis="mvi -DskipTests"
 
 alias letsgo='$HOME/myspace/shell-scripting/letsgo.sh'
 
-alias edirc='vim ~/.zshrc'
+alias zshrc='vim ~/.zshrc'
 alias srcrc='source ~/.zshrc'
-alias vimrc='source ~/.vimrc'
+alias vimrc='vim ~/.vimrc'
 
 alias otg='$HOME/myspace/shell-scripting/ofg/otg.sh'
 
@@ -29,6 +29,8 @@ alias gst="git status"
 alias gss="git status --short"
 alias gco="git checkout"
 alias gc-="git checkout -"
+alias gcd="git checkout develop"
+alias gcm="git checkout master"
 alias gcb="git checkout -b"
 alias gcam="git commit --all --message"
 

@@ -5,28 +5,28 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # Java
-JAVA_HOME=$(/usr/libexec/java_home -v 11)
-PATH="$JAVA_HOME/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+export PATH="$JAVA_HOME:$PATH"
 
 # Maven
-MVN_HOME='/Users/thaniel/prog/maven/bin'
-PATH=$MVN_HOME:$PATH
+export MVN_HOME='/Users/thaniel/prog/maven'
+export PATH="$MVN_HOME/bin:$PATH"
 
 # Android
-ANDROID_HOME=$HOME/Library/Android/sdk
-PATH=$ANDROID_HOME/platform-tools:$PATH
-ANDROID_SDK_ROOT=$ANDROID_HOME
-ANDROID_NDK_HOME=$ANDROID_HOME/ndk
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export ANDROID_SDK_ROOT=$ANDROID_HOME
+export ANDROID_NDK_HOME=$ANDROID_HOME/ndk
 
 # MySQL
-MYSQL_HOME=/usr/local/mysql
-PATH=$MYSQL_HOME/bin:$PATH
+export MYSQL_HOME=/usr/local/mysql
+export PATH=$MYSQL_HOME/bin:$PATH
 
 # Flutter
-PATH=$PATH:/Users/thaniel/prog/flutter/bin
+export PATH=$PATH:/Users/thaniel/prog/flutter/bin
 
 #Ruby
-PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 ### FUNCTIONS ###
 function mkcd() {
@@ -43,5 +43,4 @@ fi
 
 ### Shell configuration
 
-eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
