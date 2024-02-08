@@ -1,0 +1,61 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+source ~/.vimrc
+
+set nocp
+set incsearch
+set hls
+
+set ideajoin
+set ideamarks
+
+set easymotion
+set quickscope
+" set which-key
+set NERDTree
+" set sneak
+set surround
+set textobj-entire
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+
+map <leader>f <Action>(ReformatCode)
+
+map <leader>r <Action>(Run)
+map <leader>R <Action>(RunClass)
+map <leader>d <Action>(Debug)
+
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>v <Action>(Vcs.QuickListPopupAction)
+map <leader>i <Action>(ImplementMethods)
+
+map <leader>sf <Action>(GotoFile)
+
+map <leader>a <Action>(AddToHarpoon)
+map <c-h> <Action>(ShowHarpoon)
+map <c-j> <Action>(GotoHarpoon1)
+map <c-k> <Action>(GotoHarpoon2)
+map <c-l> <Action>(GotoHarpoon3)
+map <c-;> <Action>(GotoHarpoon4)
+
+map ]] <Action>(MethodDown)
+map [[ <Action>(MethodUp)
+
+map ]c <Action>(VcsShowNextChangeMarker)
+map [c <Action>(VcsShowPrevChangeMarker)
+
+map <c-up> <Action>(StretchSplitToTop)
+map <c-down> <Action>(StretchSplitToBottom)
+map <c-left> <Action>(StretchSplitToLeft)
+map <c-right> <Action>(StretchSplitToRight)
+
+map <c-e> <Action>(GotoNextError)
+map <c-y> <Action>(GotoPreviousError)
+

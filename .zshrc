@@ -14,7 +14,7 @@ export PATH="$MVN_HOME/bin:$PATH"
 
 # Android
 export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
 export ANDROID_SDK_ROOT=$ANDROID_HOME
 export ANDROID_NDK_HOME=$ANDROID_HOME/ndk
 
@@ -22,10 +22,13 @@ export ANDROID_NDK_HOME=$ANDROID_HOME/ndk
 export MYSQL_HOME=/usr/local/mysql
 export PATH=$MYSQL_HOME/bin:$PATH
 
-# Flutter
-export PATH=$PATH:/Users/thaniel/prog/flutter/bin
+# Dart & Flutter
+export DART_HOME=$HOME/prog/dart-sdk
+export FLUTTER_HOME=$HOME/prog/flutter
+export PATH=$PATH:$DART_HOME/bin
+export PATH=$PATH:$FLUTTER_HOME/bin
 
-#Ruby
+# Ruby
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 ### FUNCTIONS ###

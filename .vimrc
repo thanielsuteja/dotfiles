@@ -32,7 +32,7 @@ set incsearch
 set ignorecase smartcase
 set cursorline
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
-set scrolloff=3
+set scrolloff=5
 set wildmenu
 set wildmode=list:longest
 
@@ -42,13 +42,15 @@ set expandtab
 
 set bg=dark
 
+let mapleader=" "
+
 nnoremap <esc><esc> :noh<return><esc>
 nnoremap Y y$
 
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
+" nnoremap <c-j> <c-w>j
+" nnoremap <c-k> <c-w>k
+" nnoremap <c-h> <c-w>h
+" nnoremap <c-l> <c-w>l
 
 nnoremap <c-up> <c-w>+
 nnoremap <c-down> <c-w>-
@@ -57,8 +59,8 @@ nnoremap <c-right> <c-w><
 
 nnoremap <F3> :NERDTreeToggle<cr>
 
-nnoremap <space> "+
-vnoremap <space> "+
+nnoremap \ "+
+vnoremap \ "+
 
 " }}}
 

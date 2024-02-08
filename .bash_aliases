@@ -10,6 +10,7 @@ alias letsgo='$HOME/myspace/shell-scripting/letsgo.sh'
 alias zshrc='vim ~/.zshrc'
 alias srcrc='source ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
+alias ideavim='vim ~/.ideavimrc'
 
 alias otg='$HOME/myspace/shell-scripting/ofg/otg.sh'
 
