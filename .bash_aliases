@@ -37,14 +37,16 @@ function mkcd() {
 
 # GIT -- {{{
 
+alias gp="git push"
 alias gst="git status"
 alias gss="git status --short"
+alias gcam="git commit --all --message"
+# checkout
 alias gco="git checkout"
 alias gc-="git checkout -"
 alias gcd="git checkout develop"
 alias gcm="git checkout master"
 alias gcb="git checkout -b"
-alias gcam="git commit --all --message"
 # reset
 alias grhh="git reset --hard"
 alias grhs="git reset --soft"
