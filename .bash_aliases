@@ -11,6 +11,7 @@ alias zshrc='vim ~/.zshrc'
 alias srcrc='source ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 alias ideavim='vim ~/.ideavimrc'
+alias nvimrc='nvim ~/.config/nvim/init.lua'
 
 alias otg='$HOME/myspace/shell-scripting/ofg/otg.sh'
 
@@ -21,8 +22,18 @@ alias ll='eza -la'
 alias la='eza -a'
 alias lt='eza -T'
 
+alias aliases='vim ~/.bash_aliases'
+
 # alias myip="ifconfig en0 | awk '/inet / {print $2}'"
 # set IP=ifconfig en0 | awk '/inet / {print $2}'
+
+# FUNCTIONS -- {{{
+
+function mkcd() {
+  mkdir -p "$@" && cd "$_";
+}
+
+# }}}
 
 # GIT -- {{{
 
@@ -34,5 +45,8 @@ alias gcd="git checkout develop"
 alias gcm="git checkout master"
 alias gcb="git checkout -b"
 alias gcam="git commit --all --message"
+# reset
+alias grhh="git reset --hard"
+alias grhs="git reset --soft"
 
 # }}}

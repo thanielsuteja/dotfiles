@@ -31,11 +31,6 @@ export PATH=$PATH:$FLUTTER_HOME/bin
 # Ruby
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
-### FUNCTIONS ###
-function mkcd() {
-  mkdir -p "$@" && cd "$_";
-}
-
 ###############
 
 if [ -z "$INTELLIJ_ENVIRONMENT_READER" ]; then

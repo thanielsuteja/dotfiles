@@ -45,11 +45,12 @@ map <c-k> <Action>(GotoHarpoon2)
 map <c-l> <Action>(GotoHarpoon3)
 map <c-;> <Action>(GotoHarpoon4)
 
-map ]] <Action>(MethodDown)
-map [[ <Action>(MethodUp)
+" map ]] <Action>(MethodDown)
+" map [[ <Action>(MethodUp)
 
 map ]c <Action>(VcsShowNextChangeMarker)
 map [c <Action>(VcsShowPrevChangeMarker)
+map <leader>hr <Action>(Vcs.RollbackChangedLines)
 
 map <c-up> <Action>(StretchSplitToTop)
 map <c-down> <Action>(StretchSplitToBottom)

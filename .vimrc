@@ -75,9 +75,6 @@ augroup fold_config_files
     autocmd FileType sh setlocal foldmethod=marker
 augroup END
 
-autocmd FileType java nnoremap <buffer> ]] ]m
-autocmd FileType java nnoremap <buffer> [[ [m
-
 augroup cursor_off
     autocmd!
     autocmd WinLeave * set nocursorline
