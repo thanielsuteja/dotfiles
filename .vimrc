@@ -47,11 +47,6 @@ let mapleader=" "
 nnoremap <esc><esc> :noh<return><esc>
 nnoremap Y y$
 
-" nnoremap <c-j> <c-w>j
-" nnoremap <c-k> <c-w>k
-" nnoremap <c-h> <c-w>h
-" nnoremap <c-l> <c-w>l
-
 nnoremap <c-up> <c-w>+
 nnoremap <c-down> <c-w>-
 nnoremap <c-left> <c-w>>
@@ -61,6 +56,11 @@ nnoremap <F3> :NERDTreeToggle<cr>
 
 nnoremap \ "+
 vnoremap \ "+
+
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
+vnoremap <leader>Y "+y
 
 " }}}
 

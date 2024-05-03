@@ -16,7 +16,7 @@ set easymotion
 set quickscope
 " set which-key
 set NERDTree
-" set sneak
+set sneak
 set surround
 set textobj-entire
 
@@ -31,32 +31,50 @@ map <leader>f <Action>(ReformatCode)
 map <leader>r <Action>(Run)
 map <leader>R <Action>(RunClass)
 map <leader>d <Action>(Debug)
+map <leader>D <Action>(DebugClass)
+
+map <leader>rn <Action>(RenameElement)
+map <leader>ca <Action>(ShowIntentionActions)
 
 map <leader>b <Action>(ToggleLineBreakpoint)
 map <leader>v <Action>(Vcs.QuickListPopupAction)
 map <leader>i <Action>(ImplementMethods)
 
+" search
 map <leader>sf <Action>(GotoFile)
+map <leader>sg <Action>(FindInPath)
 
-map <leader>a <Action>(AddToHarpoon)
+map <leader>h <Action>(AddToHarpoon)
 map <c-h> <Action>(ShowHarpoon)
 map <c-j> <Action>(GotoHarpoon1)
 map <c-k> <Action>(GotoHarpoon2)
 map <c-l> <Action>(GotoHarpoon3)
 map <c-;> <Action>(GotoHarpoon4)
 
-" map ]] <Action>(MethodDown)
-" map [[ <Action>(MethodUp)
+nmap <leader>gg <Action>(Vcs.Show.Local.Changes)
+nmap <leader>pv <Action>(ShowNavBar)
 
-map ]c <Action>(VcsShowNextChangeMarker)
-map [c <Action>(VcsShowPrevChangeMarker)
-map <leader>hr <Action>(Vcs.RollbackChangedLines)
+nmap ]m <Action>(MethodDown)
+nmap [m <Action>(MethodUp)
 
-map <c-up> <Action>(StretchSplitToTop)
-map <c-down> <Action>(StretchSplitToBottom)
-map <c-left> <Action>(StretchSplitToLeft)
-map <c-right> <Action>(StretchSplitToRight)
+nmap ]c <Action>(VcsShowNextChangeMarker)
+nmap [c <Action>(VcsShowPrevChangeMarker)
+nmap <leader>hr <Action>(Vcs.RollbackChangedLines)
+
+" map <c-up> <Action>(StretchSplitToTop)
+" map <c-down> <Action>(StretchSplitToBottom)
+" map <c-left> <Action>(StretchSplitToLeft)
+" map <c-right> <Action>(StretchSplitToRight)
 
 map <c-e> <Action>(GotoNextError)
 map <c-y> <Action>(GotoPreviousError)
 
+vmap J <Action>(MoveStatementDown)
+vmap K <Action>(MoveStatementUp)
+
+nmap <leader>K <Action>(QuickImplementations)
+nmap <leader>k <Action>(ShowErrorDescription)
+
+imap <c-k> <Action>(QuickJavaDoc)
+imap <c-p> <Action>(HippieCompletion)
+imap <c-n> <Action>(HippieBackwardCompletion)

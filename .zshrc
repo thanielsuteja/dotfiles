@@ -5,7 +5,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # Java
-export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 export PATH="$JAVA_HOME:$PATH"
 
 # Maven
@@ -24,8 +24,8 @@ export PATH=$MYSQL_HOME/bin:$PATH
 
 # Dart & Flutter
 export DART_HOME=$HOME/prog/dart-sdk
-export FLUTTER_HOME=$HOME/prog/flutter
 export PATH=$PATH:$DART_HOME/bin
+export FLUTTER_HOME=$HOME/prog/flutter
 export PATH=$PATH:$FLUTTER_HOME/bin
 
 # Ruby
