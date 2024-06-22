@@ -7,12 +7,12 @@ Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-highlightedyank'
 Plug 'easymotion/vim-easymotion'
 Plug 'unblevable/quick-scope'
-Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'morhetz/gruvbox'
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-vinegar'
 
 call plug#end()
 
@@ -32,7 +32,7 @@ set incsearch
 set ignorecase smartcase
 set cursorline
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
-set scrolloff=5
+set scrolloff=4
 set wildmenu
 set wildmode=list:longest
 
@@ -60,7 +60,7 @@ vnoremap \ "+
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y "+Y
-vnoremap <leader>Y "+y
+" vnoremap <leader>Y "+y
 
 " }}}
 
@@ -73,6 +73,7 @@ augroup fold_config_files
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
     autocmd FileType sh setlocal foldmethod=marker
+    autocmd FileType zsh setlocal foldmethod=marker
 augroup END
 
 augroup cursor_off
