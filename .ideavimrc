@@ -12,11 +12,11 @@ set hls
 set ideajoin
 set ideamarks
 
-set easymotion
+" set easymotion
 set quickscope
 " set which-key
 set NERDTree
-set sneak
+" set sneak
 set surround
 set textobj-entire
 
@@ -28,31 +28,39 @@ map Q gq
 
 map <leader>f <Action>(ReformatCode)
 
-map <leader>r <Action>(Run)
+" run
+map <leader>rr <Action>(Run)
 map <leader>R <Action>(RunClass)
-map <leader>d <Action>(Debug)
+map <leader>rd <Action>(Debug)
 map <leader>D <Action>(DebugClass)
 
-map <leader>rn <Action>(RenameElement)
-map <leader>ca <Action>(ShowIntentionActions)
-
 map <leader>b <Action>(ToggleLineBreakpoint)
-map <leader>v <Action>(Vcs.QuickListPopupAction)
 map <leader>i <Action>(ImplementMethods)
 
 " search
 map <leader>sf <Action>(GotoFile)
 map <leader>sg <Action>(FindInPath)
+map <leader>sa <Action>(GotoAction)
 
-map <leader>h <Action>(AddToHarpoon)
-map <c-h> <Action>(ShowHarpoon)
-map <c-j> <Action>(GotoHarpoon1)
-map <c-k> <Action>(GotoHarpoon2)
-map <c-l> <Action>(GotoHarpoon3)
-map <c-;> <Action>(GotoHarpoon4)
+" navigation
+nmap gI <Action>(GotoImplementation)
+nmap <leader>D <Action>(GotoTypeDeclaration)
 
+" git
 nmap <leader>gg <Action>(Vcs.Show.Local.Changes)
-nmap <leader>pv <Action>(ShowNavBar)
+nmap gb <Action>(Annotate)
+
+" code action
+map <leader>rn <Action>(RenameElement)
+map <leader>ca <Action>(ShowIntentionActions)
+map <leader>an <Action>(Inline)
+map <leader>am <Action>(ExtractMethod)
+map <leader>av <Action>(IntroduceVariable)
+map <leader>ac <Action>(IntroduceConstant)
+map <leader>ap <Action>(IntroduceParameter)
+
+" file explorer
+nmap <leader>pv <Action>(ActivateProjectToolWindow)
 
 nmap ]m <Action>(MethodDown)
 nmap [m <Action>(MethodUp)
@@ -69,12 +77,35 @@ nmap <leader>hr <Action>(Vcs.RollbackChangedLines)
 map <c-e> <Action>(GotoNextError)
 map <c-y> <Action>(GotoPreviousError)
 
+nmap <c-j> <Action>(NextTab)
+nmap <c-k> <Action>(PreviousTab)
+
 vmap J <Action>(MoveStatementDown)
 vmap K <Action>(MoveStatementUp)
+vmap <c-s-j> <Action>(MoveLineDown)
+vmap <c-s-k> <Action>(MoveLineUp)
 
-nmap <leader>K <Action>(QuickImplementations)
-nmap <leader>k <Action>(ShowErrorDescription)
+nmap <leader>k <Action>(QuickImplementations)
+nmap <leader>K <Action>(ShowErrorDescription)
 
 imap <c-k> <Action>(QuickJavaDoc)
 imap <c-p> <Action>(HippieCompletion)
 imap <c-n> <Action>(HippieBackwardCompletion)
+
+" Editor action
+nmap <leader>ep <Action>(PinActiveEditorTab)
+nmap <leader>et <Action>(VimFindActionIdAction)
+nmap <leader>ev <Action>(Vcs.QuickListPopupAction)
+
+" idea Macros
+nmap <leader>mq <Action>(Macro.find config file)
+
+" method text obj workaround
+nmap yaf [{V%oky
+nmap yif V$%oky
+nmap daf [{V%okd
+nmap dif V$%okd
+
+" others
+nmap <leader>rt <Action>(RestartIde)
+nmap <leader>vr <Action>(VimActions)

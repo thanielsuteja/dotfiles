@@ -1,5 +1,23 @@
-PS1='%F{yellow}%D{%L:%M:%S}%f %1~ %# '
+# fixed config - {{{
 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+bindkey -v
+
+autoload -U edit-command-line
+zle -N edit-command-line 
+bindkey -M vicmd v edit-command-line
+
+export VISUAL='vi'
+
+eval "$(zoxide init zsh)"
+
+# }}}
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
