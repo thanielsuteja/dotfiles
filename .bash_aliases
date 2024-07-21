@@ -1,16 +1,17 @@
 alias j11="sdk use java 11.0.22-tem"
 alias j17="sdk use java 17.0.11-tem"
 
-# vim
-alias zshrc='vim ~/.zshrc'
+alias zshrc='nvim ~/.zshrc'
 alias src='source ~/.zshrc'
-alias vimrc='vim ~/.vimrc'
-alias ideavim='vim ~/.ideavimrc'
+
+alias vimrc='nvim ~/.vimrc'
+alias ideavim='nvim ~/.ideavimrc'
 
 # neovim
 alias nvrc='_open_nvim_config'
 alias nvrck='nvim ~/.config/nvim/lua/keymaps.lua'
 alias v='nvim .'
+alias scratch='nvim $HOME/.temp.md'
 
 # alias unsafechr='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security --no-default-browser-check'
 
@@ -23,7 +24,7 @@ alias cat='bat'
 
 alias lg='lazygit'
 
-alias aliases='vim ~/.bash_aliases'
+alias aliases='nvim ~/.bash_aliases'
 
 # FUNCTIONS -- {{{
 
@@ -48,28 +49,35 @@ function _open_nvim_config() {
 
 # GIT -- {{{
 
-alias gf="git fetch --prune"
-alias gl="git pull"
-alias gp="git push"
-alias gst="git status"
-alias gss="git status --short"
-alias gcam="git commit --all --message"
 # checkout
 alias gco="git checkout"
 alias gc-="git checkout -"
 alias gcd="git checkout develop"
 alias gcm="git checkout master || git checkout main"
 alias gcb="git checkout -b"
+
 # reset
 alias grhh="git reset --hard"
 alias grhs="git reset --soft"
+
 # branch
+alias gcur="git branch --show-current"
 alias gb="git branch"
 alias gba="git branch -a"
 alias gbd="git branch -d"
 alias gbD="git branch -D"
+
 # log
 alias glol="git lg"
 alias glola="git lga"
+
+#others
+alias gf="git fetch --prune"
+alias gl="git pull"
+alias gp="git push"
+alias gst="git status"
+alias gss="git status --short"
+alias gcam="git commit --all --message"
+alias gce="git commit --allow-empty -m \"trigger build\""
 
 # }}}
