@@ -46,6 +46,7 @@ let mapleader=" "
 
 nnoremap <esc><esc> :noh<return><esc>
 nnoremap Y y$
+nmap S ys
 
 nnoremap <c-up> <c-w>+
 nnoremap <c-down> <c-w>-

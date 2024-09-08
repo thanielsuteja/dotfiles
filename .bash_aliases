@@ -9,7 +9,7 @@ alias ideavim='nvim ~/.ideavimrc'
 
 # neovim
 alias nvrc='_open_nvim_config'
-alias nvrck='nvim ~/.config/nvim/lua/keymaps.lua'
+alias nvrck='_open_nvim_config lua/keymaps.lua'
 alias v='nvim .'
 alias scratch='nvim $HOME/.temp.md'
 
@@ -20,7 +20,7 @@ alias ll='ls -la'
 alias la='ls -a'
 alias lt='ls -T'
 
-alias cat='bat'
+# alias cat='bat'
 
 alias lg='lazygit'
 
@@ -36,13 +36,14 @@ function sal() {
   source $HOME/.bash_aliases
 }
 
-## open your notes
+## open your note
 function n() {
-    (cd $HOME/Vault && nvim .)
+    (cd $HOME/Vault && nvim ${1:-'.'})
 }
+alias todo="n ii/TODO.md"
 
 function _open_nvim_config() {
-    (cd ~/.config/nvim && nvim .)
+    (cd ~/.config/nvim && nvim ${1:-'.'})
 }
 
 # }}}

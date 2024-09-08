@@ -2,18 +2,13 @@
 
 export GPG_TTY=$(tty)
 
-eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
+source <(fzf --zsh)
 
-
-autoload -Uz vcs_info
-precmd() { vcs_info }
-
-zstyle ':vcs_info:git:*' formats '%b %u%c '
 setopt PROMPT_SUBST
 
-PROMPT='%F{blue}%~%f %% '
-RPROMPT='%F{red}${vcs_info_msg_0_}%f'
+PROMPT='%F{3}%3~ %f%(!.#.⌘) '
+RPROMPT='${vcs_info_msg_0_}'
 # }}}
 
 if [ -f ~/.zle ]; then

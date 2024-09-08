@@ -29,12 +29,14 @@ map Q gq
 map <leader>f <Action>(ReformatCode)
 
 " run
+map <leader>ra <Action>(Resume)
 map <leader>rr <Action>(Run)
 map <leader>R <Action>(RunClass)
 map <leader>rd <Action>(Debug)
 map <leader>D <Action>(DebugClass)
 
 map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>B <Action>(ToggleBreakpointEnabled)
 map <leader>i <Action>(ImplementMethods)
 
 " search
@@ -48,7 +50,8 @@ nmap <leader>D <Action>(GotoTypeDeclaration)
 
 " git
 nmap <leader>gg <Action>(Vcs.Show.Local.Changes)
-nmap gb <Action>(Annotate)
+nmap <leader>gb <Action>(Annotate)
+nmap <leader>co <Action>(GitCheckoutFromInputAction)
 
 " code action
 map <leader>rn <Action>(RenameElement)
@@ -58,6 +61,9 @@ map <leader>am <Action>(ExtractMethod)
 map <leader>av <Action>(IntroduceVariable)
 map <leader>ac <Action>(IntroduceConstant)
 map <leader>ap <Action>(IntroduceParameter)
+map <leader>au <Action>(Unwrap)
+map <leader>a <Action>(MoveElementRight)
+map <leader>A <Action>(MoveElementLeft)
 
 " file explorer
 nmap <leader>pv <Action>(ActivateProjectToolWindow)
@@ -77,8 +83,9 @@ nmap <leader>hr <Action>(Vcs.RollbackChangedLines)
 map <c-e> <Action>(GotoNextError)
 map <c-y> <Action>(GotoPreviousError)
 
-nmap <c-j> <Action>(NextTab)
-nmap <c-k> <Action>(PreviousTab)
+nmap <c-j> <CR>
+imap <c-j> <CR>
+" nmap <c-k> <Action>(PreviousTab)
 
 vmap J <Action>(MoveStatementDown)
 vmap K <Action>(MoveStatementUp)
@@ -89,13 +96,14 @@ nmap <leader>k <Action>(QuickImplementations)
 nmap <leader>K <Action>(ShowErrorDescription)
 
 imap <c-k> <Action>(QuickJavaDoc)
-imap <c-p> <Action>(HippieCompletion)
-imap <c-n> <Action>(HippieBackwardCompletion)
+imap <c-s-p> <Action>(HippieCompletion)
+imap <c-s-n> <Action>(HippieBackwardCompletion)
 
 " Editor action
 nmap <leader>ep <Action>(PinActiveEditorTab)
 nmap <leader>et <Action>(VimFindActionIdAction)
 nmap <leader>ev <Action>(Vcs.QuickListPopupAction)
+nmap <leader>eo <Action>(KeepTabOpen)
 
 " idea Macros
 nmap <leader>mq <Action>(Macro.find config file)
@@ -108,4 +116,5 @@ nmap dif V$%okd
 
 " others
 nmap <leader>rt <Action>(RestartIde)
+nmap <leader>ri <Action>(InvalidateCaches)
 nmap <leader>vr <Action>(VimActions)
