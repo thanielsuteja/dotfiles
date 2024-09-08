@@ -15,8 +15,8 @@ if [ -f ~/.zle ]; then
     . ~/.zle
 fi
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ~/.aliasrc ]; then
+    . ~/.aliasrc
 fi
 
 if [ -f ~/.work_aliases ]; then

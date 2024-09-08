@@ -24,7 +24,7 @@ alias lt='ls -T'
 
 alias lg='lazygit'
 
-alias aliases='nvim ~/.bash_aliases'
+alias aliases='nvim ~/.aliasrc'
 
 # FUNCTIONS -- {{{
 
@@ -44,6 +44,10 @@ alias todo="n ii/TODO.md"
 
 function _open_nvim_config() {
     (cd ~/.config/nvim && nvim ${1:-'.'})
+}
+
+function cdh() {
+    cd ~/$1
 }
 
 # }}}
@@ -82,3 +86,11 @@ alias gcam="git commit --all --message"
 alias gce="git commit --allow-empty -m \"trigger build\""
 
 # }}}
+
+# FZF -- {{{
+alias Gb="git branch | fzf --preview 'git show --color=always {-1}'"
+alias Gco="git branch | fzf --preview 'git show --color=always {-1}' | cut -c 3- | xargs git checkout"
+alias Gcoa="git branch -a | fzf --preview 'git show --color=always {-1}' | cut -c 3- | xargs git checkout"
+# }}}
+
+# vim: set ft=zsh ts=2 sts=2 sw=2 et
