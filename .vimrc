@@ -53,15 +53,16 @@ nnoremap <c-down> <c-w>-
 nnoremap <c-left> <c-w>>
 nnoremap <c-right> <c-w><
 
-nnoremap <F3> :NERDTreeToggle<cr>
-
-nnoremap \ "+
-vnoremap \ "+
+nnoremap <leader> "+
+vnoremap <leader> "+
 
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y "+Y
 " vnoremap <leader>Y "+y
+
+nnoremap gp `[v`]
+nnoremap gP `[V`]
 
 " }}}
 

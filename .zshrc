@@ -2,6 +2,9 @@
 
 export GPG_TTY=$(tty)
 
+export HISTSIZE=10000
+export SAVEHIST=10000
+
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 
@@ -17,10 +20,6 @@ fi
 
 if [ -f ~/.aliasrc ]; then
     . ~/.aliasrc
-fi
-
-if [ -f ~/.work_aliases ]; then
-    . ~/.work_aliases
 fi
 
 if [ -f ~/.env ]; then
@@ -50,4 +49,4 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 export GRANTED_ENABLE_AUTO_REASSUME=true
-
+export PATH=$PATH:/opt/homebrew/bin

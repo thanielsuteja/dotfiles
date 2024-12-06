@@ -33,7 +33,7 @@ map <leader>ra <Action>(Resume)
 map <leader>rr <Action>(Run)
 map <leader>R <Action>(RunClass)
 map <leader>rd <Action>(Debug)
-map <leader>D <Action>(DebugClass)
+map <leader>rD <Action>(DebugClass)
 
 map <leader>b <Action>(ToggleLineBreakpoint)
 map <leader>B <Action>(ToggleBreakpointEnabled)
@@ -60,6 +60,7 @@ map <leader>an <Action>(Inline)
 map <leader>am <Action>(ExtractMethod)
 map <leader>av <Action>(IntroduceVariable)
 map <leader>ac <Action>(IntroduceConstant)
+map <leader>af <Action>(IntroduceField)
 map <leader>ap <Action>(IntroduceParameter)
 map <leader>au <Action>(Unwrap)
 map <leader>a <Action>(MoveElementRight)
@@ -118,3 +119,12 @@ nmap dif V$%okd
 nmap <leader>rt <Action>(RestartIde)
 nmap <leader>ri <Action>(InvalidateCaches)
 nmap <leader>vr <Action>(VimActions)
+
+" move window
+nmap <M-j> <C-w>j
+nmap <M-k> <C-w>k
+nmap <M-h> <C-w>h
+nmap <M-l> <C-w>l
+
+" inline completion
+imap <C-e> <Action>(InsertInlineCompletionAction)

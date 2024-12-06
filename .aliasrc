@@ -1,5 +1,6 @@
-alias j11="sdk use java 11.0.22-tem"
-alias j17="sdk use java 17.0.11-tem"
+alias json="vi -c 'setfiletype json'"
+alias js="vi -c 'setfiletype javascript'"
+alias md="vi -c 'setfiletype markdown'"
 
 alias zshrc='nvim ~/.zshrc'
 alias src='source ~/.zshrc'
@@ -7,24 +8,30 @@ alias src='source ~/.zshrc'
 alias vimrc='nvim ~/.vimrc'
 alias ideavim='nvim ~/.ideavimrc'
 
+alias e='vim -c "put +"'
+alias cpy='pbcopy'
+alias pst='pbpaste'
+
 # neovim
-alias nvrc='_open_nvim_config'
-alias nvrck='_open_nvim_config lua/keymaps.lua'
+alias nvk='nv lua/keymaps.lua'
+alias nvp='nv lua/plugins/'
+alias vi='nvim'
 alias v='nvim .'
 alias scratch='nvim $HOME/.temp.md'
 
 # alias unsafechr='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security --no-default-browser-check'
 
-alias ls='eza'
-alias ll='ls -la'
+alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 alias la='ls -a'
-alias lt='ls -T'
+alias ll='eza -la'
+alias lt='eza -T'
 
 # alias cat='bat'
 
 alias lg='lazygit'
+alias mux='tmuxinator'
 
-alias aliases='nvim ~/.aliasrc'
+alias aliasrc='nvim ~/.aliasrc'
 
 # FUNCTIONS -- {{{
 
@@ -33,7 +40,7 @@ function mkcd() {
 }
 
 function sal() {
-  source $HOME/.bash_aliases
+  source $HOME/.aliasrc
 }
 
 ## open your note
@@ -42,12 +49,21 @@ function n() {
 }
 alias todo="n ii/TODO.md"
 
-function _open_nvim_config() {
+function nv() {
     (cd ~/.config/nvim && nvim ${1:-'.'})
 }
 
 function cdh() {
     cd ~/$1
+}
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }
 
 # }}}
@@ -93,4 +109,17 @@ alias Gco="git branch | fzf --preview 'git show --color=always {-1}' | cut -c 3-
 alias Gcoa="git branch -a | fzf --preview 'git show --color=always {-1}' | cut -c 3- | xargs git checkout"
 # }}}
 
-# vim: set ft=zsh ts=2 sts=2 sw=2 et
+if [ -f ~/.work_aliases ]; then
+    . ~/.work_aliases
+fi
+
+ntfy() {
+  if [ $? -eq 0 ]; then
+    osascript -e 'display notification "The command finished" with title "Success" sound name "Frog"'
+    open raycast://extensions/raycast/raycast/confetti
+  else
+    osascript -e 'display notification "ERROR ERROR ERROR" with title "Error" sound name "Purr"'
+  fi
+}
+
+# vim: set ft=bash ts=2 sts=2 sw=2 et
