@@ -1,6 +1,9 @@
+export DOCKER_HOST="unix://$HOME/.rd/docker.sock"
+
 alias json="vi -c 'setfiletype json'"
 alias js="vi -c 'setfiletype javascript'"
 alias md="vi -c 'setfiletype markdown'"
+alias xml="vi -c 'setfiletype xml'"
 
 alias zshrc='nvim ~/.zshrc'
 alias src='source ~/.zshrc'
@@ -51,10 +54,6 @@ alias todo="n ii/TODO.md"
 
 function nv() {
     (cd ~/.config/nvim && nvim ${1:-'.'})
-}
-
-function cdh() {
-    cd ~/$1
 }
 
 function y() {
@@ -116,10 +115,14 @@ fi
 ntfy() {
   if [ $? -eq 0 ]; then
     osascript -e 'display notification "The command finished" with title "Success" sound name "Frog"'
-    open raycast://extensions/raycast/raycast/confetti
+    open -g raycast://extensions/raycast/raycast/confetti >/dev/null 2>&1
   else
     osascript -e 'display notification "ERROR ERROR ERROR" with title "Error" sound name "Purr"'
   fi
+}
+
+j() {
+  awk '/^{/{print; fflush(); next} {print >"/dev/stderr" }'| jq
 }
 
 # vim: set ft=bash ts=2 sts=2 sw=2 et

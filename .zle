@@ -2,8 +2,11 @@ bindkey -v
 
 export VISUAL='nvim'
 export EDITOR='nvim'
+# export VISUAL='nvim -u ~/.config/nvim/essential.lua'
+# export EDITOR='nvim -u ~/.config/nvim/essential.lua'
+
 # switch modes qwicker
-export KEYTIMEOUT=10
+export KEYTIMEOUT=15
 
 autoload -Uz compinit && compinit
 
@@ -11,11 +14,12 @@ autoload -Uz compinit && compinit
 autoload -U edit-command-line
 zle -N edit-command-line 
 bindkey -M vicmd 'R' edit-command-line
+bindkey -M viins '' edit-command-line
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-bindkey -M vicmd '^P' history-substring-search-up
-bindkey -M vicmd '^N' history-substring-search-down
+bindkey -M viins '^K' history-substring-search-up
+bindkey -M viins '^J' history-substring-search-down
 
 bindkey -M vicmd 'K' history-search-backward
 bindkey -M vicmd 'J' history-search-forward
@@ -42,6 +46,11 @@ bindkey -M vicmd '^G' repeat-last-command
 bindkey -M vicmd cie kill-buffer
 bindkey -M vicmd die kill-buffer
 
+# copy easy
+yank-entire-buffer () { print -rn -- $BUFFER | pbcopy; }
+zle -N yank-entire-buffer
+bindkey -a '^Y' yank-entire-buffer
+
 # continue suspended process
 function continue-suspended-process () {
     BUFFER='fg'
@@ -53,18 +62,9 @@ zle -N continue-suspended-process
 bindkey -M viins '^Z' continue-suspended-process
 bindkey -M vicmd '^Z' continue-suspended-process
 
-# execute CXP build script
-function build-tvlk-proj () {
-    BUFFER='sbuild'
-    # zle end-of-line
-    zle accept-line
-}
-zle -N build-tvlk-proj
-bindkey -M vicmd ' b' build-tvlk-proj
-
 # format clipboard json with jq
 function format-clipboard-json () {
-    BUFFER='pbpaste | jq . | bat --language json'
+    BUFFER='pbpaste | jq . | bat --language json --pager="less --RAW-CONTROL-CHARS --quit-if-one-screen --mouse"'
     zle accept-line
 }
 zle -N format-clipboard-json
@@ -77,6 +77,40 @@ function edit-clipboard-text () {
 }
 zle -N edit-clipboard-text
 bindkey -M vicmd ' e' edit-clipboard-text
+
+# curl CXPBOTI easily
+_set_boti_req_env() {
+    case $1 in
+        "DEV")
+            export BOTI_URL=$local_boti
+            export BOTI_AUTH_HEADER=$(stg_auth_header)
+            ;;
+        "STG")
+            export BOTI_URL=$stg_boti
+            export BOTI_AUTH_HEADER=$(stg_auth_header)
+            ;;
+        "PROD")
+            export BOTI_URL=$prod_boti
+            export BOTI_AUTH_HEADER=$(prod_auth_header)
+            ;;
+        *)
+            export BOTI_URL="huh"
+            export BOTI_AUTH_HEADER="huh"
+            return 1
+            ;;
+    esac
+    printf "\x1b[38;5;52mSet to $1\x1b[0m\n> "
+    BUFFER=$BUFFER
+}
+export_dev_boti () { _set_boti_req_env "DEV"; }
+export_stg_boti () { _set_boti_req_env "STG"; }
+export_prod_boti () { _set_boti_req_env "PROD"; }
+zle -N export_dev_boti
+zle -N export_stg_boti
+zle -N export_prod_boti
+bindkey -a ' rd' export_dev_boti
+bindkey -a ' rs' export_stg_boti
+bindkey -a ' rp' export_prod_boti
 
 # }}}
 
